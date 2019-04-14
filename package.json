@@ -1,0 +1,77 @@
+{
+    "name": "HackmdDesktop",
+    "version": "0.0.1",
+    "description": "Desktop app for HackMD packaged with Electron",
+    "author": "A-Lang <alang.hsu@gmail.com> (http://www.osslab.tw)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/a-lang/hackmd.git"
+    },
+    "keywords": [
+        "electron-app",
+        "electron",
+        "hackmd"
+    ],
+    "files": [
+        "*.js",
+        "build/"
+    ],
+    "scripts": {
+        "start": "electron .",
+        "clean": "rm -rf ./dist",
+        "clean:linux": "rm -rf ./dist/*-linux-*/",
+        "clean:win": "rm -rf ./dist/*-win32-*/",
+        "dist:linux64": "npm run clean && build --linux",
+        "dist:linux32": "npm run clean && build --linux --ia32",
+        "dist:mac": "npm run clean && build --mac",
+        "dist:win": "npm run clean && build --win",
+        "test": "standard"
+    },
+    "build": {
+        "appId": "com.electron.hackmddesktop",
+        "directories": {
+            "buildResources": "app/build"
+        },
+        "mac": {
+            "category": "public.app-category.productivity",
+            "icon": "build/icon.icns",
+            "target": [
+                "zip"
+            ]
+        },
+        "linux": {
+            "category": "Office;",
+            "maintainer": "A-Lang <alang.hsu@gmail.com>",
+            "icon": "build",
+            "desktop": {
+                "Icon": "build/icon.png",
+                "Name": "HackmdDesktop",
+                "Comment": "HackMD Desktop",
+                "Categories": "GTK;GNOME;Office;",
+                "Terminal": "false"
+            },
+            "target": [
+                "AppImage",
+                "tar.gz"
+            ]
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "zip"
+            ],
+            "icon": "build/icon.png"
+        }
+    },
+    "dependencies": {
+        "about-window": "^1.12.1",
+        "electron-config": "^1.0.0",
+        "electron-debug": "^1.0.1"
+    },
+    "devDependencies": {
+        "electron": "^1.8.8",
+        "electron-builder": "^20.34.0",
+        "standard": "^10.0.3"
+    }
+}
