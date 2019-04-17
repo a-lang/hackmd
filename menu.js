@@ -134,6 +134,7 @@ module.exports = function createMainMenu() {
                         icon_path: join(__dirname, 'build/icon.png'),
                         license: 'MIT',
                         description: 'Unofficial HackMD.io Desktop App',
+                        win_options: { autoHideMenuBar: true },
                     })
                 },
             ]
