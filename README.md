@@ -35,7 +35,7 @@ Build the application for specified platform:
 
 ```sh
 npm run start
-npm run dist:linux64
+npm run dist:linux
 npm run dist:macos
 npm run dist:win
 ```
